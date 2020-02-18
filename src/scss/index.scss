@@ -45,7 +45,7 @@ a {
   background: grey;
 }
 
-.contenitore {
+.outerBox {
   width: 100%;
   height: auto;
   display: flex;
@@ -53,7 +53,7 @@ a {
   justify-content: space-around;
   overflow: auto;
 
-  .main {
+  .innerBox {
     position: relative;
     width: 100%;
   }
@@ -97,6 +97,9 @@ a {
   z-index: 9999;
 
   .splashImg {
+    width: 200px;
+    height: 50px;
+    background: lightskyblue;
     position: fixed;
     top: 40%;
     left: 50%;

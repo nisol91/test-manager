@@ -1,0 +1,12 @@
+@import "~react-image-gallery/styles/scss/image-gallery.scss";
+$card-point-color: rgb(0, 174, 255);
+$card-link-color: #536872;
+$card-width: 200px;
+$card-height: 200px;
+
+.mainBox {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  background: grey;
+}
