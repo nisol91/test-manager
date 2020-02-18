@@ -68,15 +68,17 @@ class Main extends Component {
   render() {
     return (
       <div className="mainBox">
-        {this.state.users.map((user, index) => (
-          <React.Fragment key={index}>
-            <div key={index} className="">
-              <h1 className="">{user.employee_name}</h1>
-              <h1 className="">{user.employee_salary}</h1>
-              <h1 className="">{user.employee_age}</h1>
-            </div>
-          </React.Fragment>
-        ))}
+        <div className="elementsBox">
+          {this.state.users.map((user, index) => (
+            <React.Fragment key={index}>
+              <div key={index} className="singleRow">
+                <h1 className="rowTextElement">{user.employee_name}</h1>
+                <h1 className="rowTextElement">{user.employee_salary}</h1>
+                <h1 className="rowTextElement">{user.employee_age}</h1>
+              </div>
+            </React.Fragment>
+          ))}
+        </div>
       </div>
     );
   }
