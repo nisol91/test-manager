@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Main from "./components/main/main";
+import Users from "./components/users/users";
+
 import Project from "./components/project/project";
 import Footer from "./components/footer/footer";
 import { I18nextProvider } from "react-i18next";
@@ -43,7 +45,7 @@ class App extends Component {
                   <div className="splashImg pulseit" />
                 </div>
               ) : null}
-              <Route exact path="/" component={Main} />
+              <Route exact path="" component={Main} />
               <Route exact path="/project/:projID" component={Project} />
               <Footer></Footer>
             </div>

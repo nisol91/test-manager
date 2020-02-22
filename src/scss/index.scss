@@ -68,22 +68,12 @@ a {
 }
 
 
-
-//===========THREE JS=====
-//contenitori
-#c {
-  width: 600px;
-  height: 600px;
-}
-
-#t {
-  width: 600px;
-  height: 600px;
-}
-
-#s {
-  width: 600px;
-  height: 600px;
+.spinner {
+  width: 100% !important;
+  height: 100% !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 // splash screen 

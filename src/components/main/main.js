@@ -12,6 +12,9 @@ import {
   faWindowClose
 } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Users from "../users/users";
+import Categories from "../categories/categories";
 
 class Main extends Component {
   constructor(props) {
@@ -68,17 +71,20 @@ class Main extends Component {
   render() {
     return (
       <div className="mainBox">
-        <div className="elementsBox">
-          {this.state.users.map((user, index) => (
-            <React.Fragment key={index}>
-              <div key={index} className="singleRow">
-                <h1 className="rowTextElement">{user.employee_name}</h1>
-                <h1 className="rowTextElement">{user.employee_salary}</h1>
-                <h1 className="rowTextElement">{user.employee_age}</h1>
-              </div>
-            </React.Fragment>
-          ))}
-        </div>
+        <Router>
+          <div className="navigation">
+            <Link className="navigationElement" to="/users">
+              Users
+            </Link>
+            <Link className="navigationElement" to="/categories">
+              Categories
+            </Link>
+          </div>
+          <div className="routerContainer">
+            <Route exact path="/users" component={Users} />
+            <Route exact path="/categories" component={Categories} />
+          </div>
+        </Router>
       </div>
     );
   }
