@@ -24,20 +24,6 @@ class Main extends Component {
       usersLoaded: false,
       users: []
     };
-    this.handleLoading = this.handleLoading.bind(this);
-  }
-
-  handleLoading() {
-    this.setState({
-      usersLoaded: true
-    });
-    setTimeout(() => {
-      console.log(this.state.usersLoaded);
-      console.log(this.state.users);
-    }, 20);
-
-    console.log("====================================");
-    console.log("====================================");
   }
 
   async fetchUsers() {

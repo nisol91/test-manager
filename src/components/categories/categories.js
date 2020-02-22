@@ -20,8 +20,10 @@ class Categories extends Component {
     super(props);
 
     this.state = {
+      title: "categories",
       dataLoaded: false,
-      fetchedData: []
+      fetchedData: [],
+      loadSearchBar: false
     };
   }
 
@@ -34,16 +36,14 @@ class Categories extends Component {
         console.log(response);
         this.setState({
           dataLoaded: true,
-          fetchedData: response.data
+          fetchedData: response.data,
+          loadSearchBar: true
         });
         this.handleLoading();
       })
       .catch(function(error) {
         // handle error
-
-        console.log("====================================");
         console.log(error);
-        console.log("====================================");
       })
       .finally(function() {
         // always executed
@@ -57,23 +57,29 @@ class Categories extends Component {
   render() {
     return (
       <div className="elementsBox">
-        <TopSearch></TopSearch>
-
-        {this.state.dataLoaded === false ? (
-          <div className="spinner">
-            <Spinner color="primary" className="" />
-          </div>
-        ) : (
-          this.state.fetchedData.map((element, index) => (
-            <React.Fragment key={index}>
-              <div key={index} className="singleRow">
-                <h1 className="rowTextElement">{element.userId}</h1>
-                <h1 className="rowTextElement">{element.id}</h1>
-                <h1 className="rowTextElement">{element.title}</h1>
-              </div>
-            </React.Fragment>
-          ))
-        )}
+        {this.state.loadSearchBar ? (
+          <TopSearch
+            title={this.state.title}
+            fetchedData={this.state.fetchedData}
+          ></TopSearch>
+        ) : null}
+        <div className="tableBox">
+          {this.state.dataLoaded === false ? (
+            <div className="spinner">
+              <Spinner color="primary" className="" />
+            </div>
+          ) : (
+            this.state.fetchedData.map((element, index) => (
+              <React.Fragment key={index}>
+                <div key={index} className="singleRow">
+                  <h1 className="rowTextElement">{element.userId}</h1>
+                  <h1 className="rowTextElement">{element.id}</h1>
+                  <h1 className="rowTextElement">{element.title}</h1>
+                </div>
+              </React.Fragment>
+            ))
+          )}
+        </div>
       </div>
     );
   }

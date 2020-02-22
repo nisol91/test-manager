@@ -19,18 +19,68 @@ class TopSearch extends Component {
     super(props);
 
     this.state = {
-      fetchedData: [],
-      title: ""
+      title: "",
+      fetchFromFather: [],
+      searchVal: "",
+      matchResultSearch: []
     };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  fetchFromFather() {
+    this.setState({
+      fetchFromFather: this.props.fetchedData
+    });
+    setTimeout(() => {
+      console.log("=============fetch from parent=======================");
+      console.log(this.state.fetchFromFather);
+      console.log("=============fetch from parent=======================");
+    }, 200);
+  }
+  handleChange(event) {
+    this.setState({ searchVal: event.target.value });
+    setTimeout(() => {
+      console.log(this.state.searchVal);
+    }, 20);
   }
 
-  componentDidMount() {}
+  handleSubmit(event) {
+    console.log("Hai cercato: " + this.state.searchVal);
+    event.preventDefault();
+    // this.state.fetchFromFather.forEach(val => console.log(val.id));
+    var array = [];
+    this.state.fetchFromFather.forEach(val => {
+      if (val.employee_name === this.state.searchVal) {
+        array.push(val);
+      }
+    });
+    // this.setState({ searchVal: event.target.value });
+    console.log(array);
+
+    //TODO
+    // quando trovo il mio nome, aggiorno lo stato del componente padre.
+  }
+  componentDidMount() {
+    this.fetchFromFather();
+  }
 
   render() {
     return (
       <div className="topSearch">
-        <div className="tableTitle">titolo</div>
-        <div className="tableSearchBar">barra di ricerca</div>
+        <div className="tableTitle">{this.props.title}</div>
+        <form onSubmit={this.handleSubmit}>
+          <label className="tableSearchBar">
+            <input
+              type="text"
+              name="nome"
+              className="inputField"
+              value={this.state.searchVal}
+              onChange={this.handleChange}
+            />
+            <input type="submit" value="Submit" className="submitBtn" />
+          </label>
+        </form>
       </div>
     );
   }

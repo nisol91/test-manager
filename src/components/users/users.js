@@ -20,8 +20,10 @@ class Users extends Component {
     super(props);
 
     this.state = {
+      title: "users",
       dataLoaded: false,
-      fetchedData: []
+      fetchedData: [],
+      loadSearchBar: false
     };
   }
 
@@ -34,7 +36,8 @@ class Users extends Component {
         console.log(response);
         this.setState({
           dataLoaded: true,
-          fetchedData: response.data.data
+          fetchedData: response.data.data,
+          loadSearchBar: true
         });
         this.handleLoading();
       })
@@ -53,24 +56,33 @@ class Users extends Component {
   render() {
     return (
       <div className="elementsBox">
-        <TopSearch></TopSearch>
-        {this.state.dataLoaded === false ? (
-          <div className="spinner">
-            <Spinner color="primary" className="" />
-          </div>
-        ) : (
-          this.state.fetchedData.map((element, index) => (
-            <React.Fragment key={index}>
-              {
-                <div key={index} className="singleRow">
-                  <h1 className="rowTextElement">{element.employee_name}</h1>
-                  <h1 className="rowTextElement">{element.employee_salary}</h1>
-                  <h1 className="rowTextElement">{element.employee_age}</h1>
-                </div>
-              }
-            </React.Fragment>
-          ))
-        )}
+        {this.state.loadSearchBar ? (
+          <TopSearch
+            title={this.state.title}
+            fetchedData={this.state.fetchedData}
+          ></TopSearch>
+        ) : null}
+        <div className="tableBox">
+          {this.state.dataLoaded === false ? (
+            <div className="spinner">
+              <Spinner color="primary" className="" />
+            </div>
+          ) : (
+            this.state.fetchedData.map((element, index) => (
+              <React.Fragment key={index}>
+                {
+                  <div key={index} className="singleRow">
+                    <h1 className="rowTextElement">{element.employee_name}</h1>
+                    <h1 className="rowTextElement">
+                      {element.employee_salary}
+                    </h1>
+                    <h1 className="rowTextElement">{element.employee_age}</h1>
+                  </div>
+                }
+              </React.Fragment>
+            ))
+          )}
+        </div>
       </div>
     );
   }
