@@ -47,26 +47,56 @@ a {
 
 .outerBox {
   width: 100%;
-  height: auto;
+  height: 100vh;
+
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-around;
   overflow: auto;
 
   .innerBox {
     position: relative;
     width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
 }
 
-//correction for nuka-carousel
-.slider-slide:focus,
-.slider-control-centerleft button:focus,
-.slider-control-centerright button:focus,
-.paging-item button:focus {
-  outline: none !important;
+
+//header
+.headerMain {
+  width: 100%;
+  padding: 20px;
+  background: lightgrey;
+  display: flex;
+  justify-content: space-between;
+
+  .mainTitle {
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  .userLogin {
+    font-size: 30px;
+    font-weight: bold;
+  }
 }
 
+//======================
+//COMMON DATA TABLE CSS RULES
+
+.elementsBox {
+  overflow-y: scroll;
+  width: 100%;
+  height: 500px;
+  padding: 20px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 7px 3px rgba(179, 179, 179, 1);
+  -moz-box-shadow: 0px 0px 7px 3px rgba(179, 179, 179, 1);
+  box-shadow: 0px 0px 7px 3px rgba(179, 179, 179, 1);
+
+}
 
 .spinner {
   width: 100% !important;
@@ -75,6 +105,9 @@ a {
   justify-content: center;
   align-items: center;
 }
+
+
+//======================
 
 // splash screen 
 .splashScreen {

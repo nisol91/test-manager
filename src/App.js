@@ -45,6 +45,10 @@ class App extends Component {
                   <div className="splashImg pulseit" />
                 </div>
               ) : null}
+              <div className="headerMain">
+                <h1 className="mainTitle">ParmìManager</h1>
+                <h1 className="userLogin">Login</h1>
+              </div>
               <Route exact path="" component={Main} />
               <Route exact path="/project/:projID" component={Project} />
               <Footer></Footer>

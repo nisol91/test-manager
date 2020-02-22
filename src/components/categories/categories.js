@@ -13,6 +13,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import TopSearch from "../topSearch/topSearch";
 
 class Categories extends Component {
   constructor(props) {
@@ -56,6 +57,8 @@ class Categories extends Component {
   render() {
     return (
       <div className="elementsBox">
+        <TopSearch></TopSearch>
+
         {this.state.dataLoaded === false ? (
           <div className="spinner">
             <Spinner color="primary" className="" />
