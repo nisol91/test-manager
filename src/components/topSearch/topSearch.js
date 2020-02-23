@@ -53,7 +53,9 @@ class TopSearch extends Component {
 
     this.state.fetchFromFather.forEach(val => {
       for (const key in val) {
-        if (val[key].includes(this.state.searchVal)) {
+        var string = val[key].toUpperCase();
+        var substring = this.state.searchVal.toUpperCase();
+        if (string.includes(substring)) {
           matchedValues.push(val);
         }
       }
@@ -63,6 +65,7 @@ class TopSearch extends Component {
 
     //TODO
     // devo far diventare il fetchedData del componente padre = matchedValues
+    // il testo cercato deve essere evidenziato
   }
   componentDidMount() {
     this.fetchFromFather();
@@ -81,7 +84,7 @@ class TopSearch extends Component {
               value={this.state.searchVal}
               onChange={this.handleChange}
             />
-            <input type="submit" value="Submit" className="submitBtn" />
+            <input type="submit" value="Search" className="submitBtn" />
           </label>
         </form>
       </div>
