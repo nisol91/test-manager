@@ -48,18 +48,21 @@ class TopSearch extends Component {
   handleSubmit(event) {
     console.log("Hai cercato: " + this.state.searchVal);
     event.preventDefault();
-    // this.state.fetchFromFather.forEach(val => console.log(val.id));
-    var array = [];
+
+    var matchedValues = [];
+
     this.state.fetchFromFather.forEach(val => {
-      if (val.employee_name === this.state.searchVal) {
-        array.push(val);
+      for (const key in val) {
+        if (val[key].includes(this.state.searchVal)) {
+          matchedValues.push(val);
+        }
       }
     });
-    // this.setState({ searchVal: event.target.value });
-    console.log(array);
+
+    console.log(matchedValues);
 
     //TODO
-    // quando trovo il mio nome, aggiorno lo stato del componente padre.
+    // devo far diventare il fetchedData del componente padre = matchedValues
   }
   componentDidMount() {
     this.fetchFromFather();
