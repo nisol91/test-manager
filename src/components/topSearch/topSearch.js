@@ -55,7 +55,7 @@ class TopSearch extends Component {
       for (const key in val) {
         var string = val[key].toUpperCase();
         var substring = this.state.searchVal.toUpperCase();
-        if (string.includes(substring)) {
+        if (string.includes(substring) && !matchedValues.includes(val)) {
           matchedValues.push(val);
         }
       }
