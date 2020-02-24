@@ -3,23 +3,3 @@ $card-point-color: rgb(0, 174, 255);
 $card-link-color: #536872;
 $card-width: 200px;
 $card-height: 200px;
-
-
-
-
-
-.singleRow {
-  width: 100%;
-  background: white;
-  display: flex;
-  justify-content: space-around;
-  border-bottom: .5px solid grey;
-  margin: 5px 0;
-  padding: 5px 0;
-
-}
-
-.rowTextElement {
-  font-size: 20px;
-  margin: 0 10px;
-}

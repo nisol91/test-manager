@@ -65,8 +65,8 @@ class Categories extends Component {
         ) : null}
         <div className="tableBox">
           {this.state.dataLoaded === false ? (
-            <div className="spinner">
-              <Spinner color="primary" className="" />
+            <div className="spinnerBox">
+              <Spinner color="" className="spinner" />
             </div>
           ) : (
             this.state.fetchedData.map((element, index) => (
