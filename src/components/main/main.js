@@ -26,33 +26,7 @@ class Main extends Component {
     };
   }
 
-  async fetchUsers() {
-    axios
-      // .get("http://parmi.softwarehouseparma.it/api/users")
-      .get("http://dummy.restapiexample.com/api/v1/employees")
-      .then(response => {
-        // handle success
-        console.log(response);
-        this.setState({
-          users: response.data.data
-        });
-        this.handleLoading();
-      })
-      .catch(function(error) {
-        // handle error
-
-        console.log("====================================");
-        console.log(error);
-        console.log("====================================");
-      })
-      .finally(function() {
-        // always executed
-      });
-  }
-
-  componentDidMount() {
-    this.fetchUsers();
-  }
+  componentDidMount() {}
 
   render() {
     return (
